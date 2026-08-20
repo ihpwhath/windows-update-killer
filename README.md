@@ -15,6 +15,49 @@
 
 ---
 
+## 🤖 AI Agent Skill — 说句话，让 AI 帮你搞定
+
+**装上这个 Skill，你只需要跟 AI 说一句话，它会自动帮你禁用或恢复 Windows 更新。**  
+Install this as an **Antigravity agent skill** — just describe what you want, the AI handles everything.
+
+### 安装方法 | Installation
+
+把 `.agents/` 文件夹复制到你的任意项目根目录：  
+Copy the `.agents/` folder into your project root:
+
+```powershell
+git clone https://github.com/ihpwhath/windows-update-killer.git
+Copy-Item -Recurse windows-update-killer\.agents\ .\
+```
+
+目录结构如下 | Directory structure:
+
+```
+your-project/
+└── .agents/
+    └── skills/
+        └── windows-update-killer/
+            ├── SKILL.md
+            └── scripts/
+                └── Disable-WindowsUpdate.ps1
+```
+
+### 装好之后，直接跟 AI 说 | Just talk to your agent
+
+| 你说 / You say | AI 做什么 / Agent does |
+|----------------|------------------------|
+| 帮我禁用 Windows 更新 | 运行四层禁用，彻底关掉自动更新 |
+| 关掉 Windows 自动更新 | 同上 |
+| 恢复 Windows 更新 | 一键恢复所有更新服务 |
+| disable Windows Update | Runs 4-layer disable mode |
+| kill / stop Windows updates | Runs 4-layer disable mode |
+| restore / enable Windows Update | Restores all update services |
+
+> AI 会自动请求 UAC 管理员权限，执行完后汇报结果，全程不用你动手。  
+> The agent auto-requests UAC admin rights, runs the script, and reports back — zero manual steps.
+
+---
+
 ## 🇨🇳 中文说明
 
 ### 解决了什么问题？
@@ -141,53 +184,7 @@ MIT — free to use, modify, and distribute.
 
 <div align="center">
 
+**如果这个工具在你最关键的时刻帮你挡住了强制更新重启，给个 ⭐ 吧**  
 **If this saved you from a 3-hour Windows update at the worst possible moment, give it a ⭐**
 
 </div>
-
----
-
-## 🤖 Antigravity Agent Skill
-
-> Install this as an **Antigravity skill** so your AI agent can disable / restore Windows Update for you with a single command.
-
-### Installation
-
-Copy the `.agents/` folder from this repo into your project root (or any project you work on with Antigravity):
-
-```
-your-project/
-└── .agents/
-    └── skills/
-        └── windows-update-killer/
-            ├── SKILL.md
-            └── scripts/
-                └── Disable-WindowsUpdate.ps1
-```
-
-Or clone and copy in one command:
-
-```powershell
-# Clone repo, then copy .agents into your project
-git clone https://github.com/ihpwhath/windows-update-killer.git
-Copy-Item -Recurse windows-update-killer\.agents\ .\  
-```
-
-### Usage (after install)
-
-Just tell your agent naturally:
-
-| You say | Agent does |
-|---------|-----------|
-| 禁用 Windows 更新 | Runs disable mode (4-layer protection) |
-| 关掉自动更新 | Runs disable mode |
-| 恢复 Windows 更新 | Runs restore mode |
-| disable Windows Update | Runs disable mode |
-| restore / enable Windows Update | Runs restore mode |
-
-The agent will automatically request UAC admin elevation and report results.
-
-### Skill location
-
-- Skill instructions: [`.agents/skills/windows-update-killer/SKILL.md`](.agents/skills/windows-update-killer/SKILL.md)  
-- Core script: [`.agents/skills/windows-update-killer/scripts/Disable-WindowsUpdate.ps1`](.agents/skills/windows-update-killer/scripts/Disable-WindowsUpdate.ps1)
