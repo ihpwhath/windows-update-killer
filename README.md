@@ -144,3 +144,50 @@ MIT — free to use, modify, and distribute.
 **If this saved you from a 3-hour Windows update at the worst possible moment, give it a ⭐**
 
 </div>
+
+---
+
+## 🤖 Antigravity Agent Skill
+
+> Install this as an **Antigravity skill** so your AI agent can disable / restore Windows Update for you with a single command.
+
+### Installation
+
+Copy the `.agents/` folder from this repo into your project root (or any project you work on with Antigravity):
+
+```
+your-project/
+└── .agents/
+    └── skills/
+        └── windows-update-killer/
+            ├── SKILL.md
+            └── scripts/
+                └── Disable-WindowsUpdate.ps1
+```
+
+Or clone and copy in one command:
+
+```powershell
+# Clone repo, then copy .agents into your project
+git clone https://github.com/ihpwhath/windows-update-killer.git
+Copy-Item -Recurse windows-update-killer\.agents\ .\  
+```
+
+### Usage (after install)
+
+Just tell your agent naturally:
+
+| You say | Agent does |
+|---------|-----------|
+| 禁用 Windows 更新 | Runs disable mode (4-layer protection) |
+| 关掉自动更新 | Runs disable mode |
+| 恢复 Windows 更新 | Runs restore mode |
+| disable Windows Update | Runs disable mode |
+| restore / enable Windows Update | Runs restore mode |
+
+The agent will automatically request UAC admin elevation and report results.
+
+### Skill location
+
+- Skill instructions: [`.agents/skills/windows-update-killer/SKILL.md`](.agents/skills/windows-update-killer/SKILL.md)  
+- Core script: [`.agents/skills/windows-update-killer/scripts/Disable-WindowsUpdate.ps1`](.agents/skills/windows-update-killer/scripts/Disable-WindowsUpdate.ps1)
